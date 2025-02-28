@@ -1,0 +1,21 @@
+{
+  "name": "receipts-space",
+  "version": "0.3.0",
+  "description": "Receipts Space file format reference implementation ",
+  "author": "Dirk Holtwick",
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "pack": "npm pack",
+    "bump": "npm version minor"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "zeed": "^0.27.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.5",
+    "tsx": "^4.19.3"
+  }
+}
