@@ -13,7 +13,7 @@ export async function commandExport(path: string) {
   if (info == null) {
     console.error('info.json not found')
     process.exit(1)
-    return
+    return // to satisfy TypeScript
   }
 
   // Since apiVersion 3 the file extension is .dat
@@ -36,7 +36,7 @@ export async function commandExport(path: string) {
     while (true) {
       // See https://receipts.viidoo.space/docs#structure
       // Read transactions starting from 0 until no more valid transactions are found
-      const pathTransactionItem = resolve(pathTransactions, clientId, ...distributedFilePath(clientTransactionIndex, 1000))
+      const pathTransactionItem = resolve(pathTransactions, clientId, ...distributedFilePath(clientTransactionIndex, 1000)) + ext
       const bin = await readBin(pathTransactionItem)
       if (bin == null) {
         console.info(`  ... ${clientTransactionIndex} transactions from ${clientId}`)
@@ -74,7 +74,7 @@ export async function commandExport(path: string) {
               const assetPath = resolve(basePath, type, id)
               await ensureFolder(assetPath)
               // console.log(asset.cid, asset.idx, asset.name, assetPath)
-              const assetSrcPath = resolve(path, FOLDER_NAME_ASSETS, asset.cid, ...asset.pathList)
+              const assetSrcPath = resolve(path, FOLDER_NAME_ASSETS, asset.cid, ...asset.pathList) + ext
               await copyFile(assetSrcPath, resolve(assetPath, asset.name))
               assetCount += 1
             }
