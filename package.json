@@ -1,6 +1,6 @@
 {
   "name": "receipts-space",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Receipts Space file format reference implementation ",
   "author": "Dirk Holtwick",
   "license": "Apache-2.0",
